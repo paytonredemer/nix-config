@@ -18,6 +18,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/t480s/configuration.nix
+          home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.lenovo-thinkpad-t480s
           nixos-hardware.nixosModules.common-cpu-intel-kaby-lake
           nixos-hardware.nixosModules.common-gpu-intel

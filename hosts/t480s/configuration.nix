@@ -1,14 +1,19 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { inputs, config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.payton = import "${inputs.self}/home";
+    extraSpecialArgs = {
+      inherit inputs;
+      # headless = false;
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -28,6 +33,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -62,7 +70,7 @@
     isNormalUser = true;
     description = "Payton Redemer";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     packages = with pkgs; [
       alacritty
       arandr
@@ -92,13 +100,28 @@
     corefonts
   ];
 
+  environment.variables = rec {
+    TERMINAL = "alacritty";
+    EDITOR = "nvim";
+
+    XDG_CACHE_HOME  = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME   = "$HOME/.local/share";
+    XDG_STATE_HOME  = "$HOME/.local/state";
+
+    # Not officially in the specification
+    XDG_BIN_HOME    = "$HOME/.local/bin";
+    PATH = [ 
+      "${XDG_BIN_HOME}"
+    ];
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
     git
     neovim
-    tmux
     neofetch
     stow
     gnumake
@@ -109,17 +132,14 @@
     mpv
     lf
     ranger
-    # nvim dependcies
-    unzip
-    wget
-    gcc
-    nodejs_20
-    go
     python312
     python39
-    cargo
-    ripgrep
+    zathura
+    rustc
+    # xorg.xbacklight
   ];
+
+  programs.light.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -131,7 +151,8 @@
 
   # List services that you want to enable:
 
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
+  # programs.zsh.enable = true;
 
   services.picom.settings = true;
 
