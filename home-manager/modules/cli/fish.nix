@@ -53,4 +53,7 @@ in {
       }
     ];
   };
+  programs.zsh = {
+    enable = true;
+  };
 }

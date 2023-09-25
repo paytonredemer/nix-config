@@ -3,6 +3,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/bluetooth.nix
     ];
 
   home-manager = {
@@ -11,7 +12,6 @@
     users = {
       payton = import ../../home-manager/home.nix;
     };
-    # users.payton = import "${inputs.self}/home";
     extraSpecialArgs = {
       inherit inputs;
     };
@@ -22,6 +22,16 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "t480s"; # Define your hostname.
+  
+  hardware = {
+    opengl.enable = true;
+    opengl.extraPackages = with pkgs; [
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+      vulkan-tools
+    ];
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -36,8 +46,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -85,6 +93,7 @@
       playerctl
       pulsemixer
       spotify
+      wezterm
     ];
   };
 
@@ -150,7 +159,7 @@
   # List services that you want to enable:
 
   programs.fish.enable = true;
-  # programs.zsh.enable = true;
+  programs.zsh.enable = true;
 
   # services.picom.settings = true;
 
