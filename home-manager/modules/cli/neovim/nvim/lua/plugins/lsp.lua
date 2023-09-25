@@ -29,31 +29,49 @@ return {
     end
 
     require("neodev").setup()
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-      ensure_installed = {
-        "clangd",
-        "pyright",
-        "bashls",
-        "tsserver",
-        "eslint",
-        "lua_ls",
-        "rust_analyzer",
-        "ltex",
-        "nil_ls",
-      },
-    })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-    require("mason-lspconfig").setup_handlers({
-      function(server_name)
-        require("lspconfig")[server_name].setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-        })
-      end,
-    })
+    local servers = {
+      clangd = {},
+      pyright = {},
+      bashls = {},
+      tsserver = {},
+      eslint = {},
+      lua_ls = {},
+      rust_analyzer = {},
+      ltex = {},
+      nil_ls = {},
+    }
+
+    for server, _ in pairs(servers) do
+      require("lspconfig")[server].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+    end
+
+
+
+    -- require("lspconfig").nil_ls.setup({
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    -- })
+    --
+    -- require("lspconfig").rust_analyzer.setup({
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    -- })
+
+
+    -- require("mason-lspconfig").setup_handlers({
+    --   function(server_name)
+    --     require("lspconfig")[server_name].setup({
+    --       on_attach = on_attach,
+    --       capabilities = capabilities,
+    --     })
+    --   end,
+    -- })
   end,
 }

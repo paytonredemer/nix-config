@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./alacritty.nix
+    ./alacritty.nix
     ./font.nix
     ./qtile
     ./dunst.nix
@@ -10,4 +10,5 @@
   ];
 
   services.picom.enable = true;
+  services.xscreensaver.enable = true;
 }

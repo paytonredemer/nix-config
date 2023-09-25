@@ -12,7 +12,8 @@ in {
 
       fish_add_path $HOME/.local/bin/
     '';
-    shellAbbrs = { e = editor;
+    shellAbbrs = {
+      e = editor;
       v = editor;
       g = "git";
       h = "history";

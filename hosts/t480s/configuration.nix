@@ -8,10 +8,12 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.payton = import "${inputs.self}/home";
+    users = {
+      payton = import ../../home-manager/home.nix;
+    };
+    # users.payton = import "${inputs.self}/home";
     extraSpecialArgs = {
       inherit inputs;
-      # headless = false;
     };
   };
 
@@ -72,20 +74,16 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      alacritty
       arandr
+      cargo
       dbus
-      dunst
       feh
-      firefox
       flameshot
       libreoffice-fresh
       ncmpcpp
       networkmanagerapplet
-      picom
       playerctl
       pulsemixer
-      rofi
       spotify
     ];
   };
@@ -100,30 +98,30 @@
     corefonts
   ];
 
-  environment.variables = rec {
-    TERMINAL = "alacritty";
-    EDITOR = "nvim";
-
-    XDG_CACHE_HOME  = "$HOME/.cache";
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME   = "$HOME/.local/share";
-    XDG_STATE_HOME  = "$HOME/.local/state";
-
-    # Not officially in the specification
-    XDG_BIN_HOME    = "$HOME/.local/bin";
-    PATH = [ 
-      "${XDG_BIN_HOME}"
-    ];
-  };
+  # environment.variables = rec {
+  #   TERMINAL = "alacritty";
+  #   EDITOR = "nvim";
+  #
+  #   XDG_CACHE_HOME  = "$HOME/.cache";
+  #   XDG_CONFIG_HOME = "$HOME/.config";
+  #   XDG_DATA_HOME   = "$HOME/.local/share";
+  #   XDG_STATE_HOME  = "$HOME/.local/state";
+  #
+  #   # Not officially in the specification
+  #   XDG_BIN_HOME    = "$HOME/.local/bin";
+  #   PATH = [ 
+  #     "${XDG_BIN_HOME}"
+  #   ];
+  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
-    git
-    neovim
+    # git
+    # neovim
     neofetch
-    stow
+    # stow
     gnumake
     fzf
     htop
@@ -134,12 +132,12 @@
     ranger
     python312
     python39
-    zathura
+    # zathura
     rustc
     # xorg.xbacklight
   ];
 
-  programs.light.enable = true;
+  # programs.light.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -154,7 +152,7 @@
   programs.fish.enable = true;
   # programs.zsh.enable = true;
 
-  services.picom.settings = true;
+  # services.picom.settings = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
