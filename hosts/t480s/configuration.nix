@@ -22,7 +22,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "t480s"; # Define your hostname.
-  
+
   hardware = {
     opengl.enable = true;
     opengl.extraPackages = with pkgs; [
