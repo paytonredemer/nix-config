@@ -13,6 +13,7 @@
         "$git_state"
         "$git_status"
         "$git_metrics"
+        "$fill"
         "$line_break"
         "$character"
       ];
@@ -21,7 +22,6 @@
       character = {
         success_symbol = "[❯](white)";
         error_symbol = "[❯](red)";
-        # error_symbol = "[❯](bold red)" 
       };
       package.disabled = true;
       username = {
@@ -40,6 +40,7 @@
       directory = {
         truncate_to_repo = false;
         truncation_length = 8;
+        read_only = " ";
         style = "blue";
       };
       git_branch = {

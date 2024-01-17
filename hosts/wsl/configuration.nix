@@ -35,7 +35,6 @@
   };
 
   programs.fish.enable = true;
-  programs.starship.enable = true;
   programs.git.enable = true;
   programs.tmux.enable = true;
 
