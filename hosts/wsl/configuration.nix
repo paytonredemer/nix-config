@@ -52,6 +52,9 @@
     lf
     gcc
     xclip
+    nodejs_21
+    wget
+    unzip
   ];
 
   # This value determines the NixOS release from which the default
