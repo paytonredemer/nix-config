@@ -35,14 +35,13 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/wsl/configuration.nix
-          # home-manager.nixosModules.home-manager
           nixos-wsl.nixosModules.wsl
         ];
       };
     };
     homeConfigurations = {
-      "payton" = nixpkgs.lib.homeManagerConfiguration {
-        modules = [ ./home-manager/home.nix ];
+      "payton@wsl" = home-manager.lib.homeManagerConfiguration {
+        modules = [ ./home/payton/wsl.nix ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
     };
