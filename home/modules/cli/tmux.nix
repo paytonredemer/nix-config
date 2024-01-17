@@ -22,7 +22,7 @@
       }
       {
         plugin = tmuxPlugins.continuum;
-        extraConfig = "set -g @continuum-restore 'on'";
+        # extraConfig = "set -g @continuum-restore 'on'";
       }
       {
         plugin = tmuxPlugins.fzf-tmux-url;
@@ -42,6 +42,7 @@
 
       # status
       set -g status-style 'bg=terminal fg=terminal'
+      set-option -g status-position top
       set-option -g status-right '%a, %b %d %I:%M %p'
 
       bind-key -T copy-mode-vi v send -X begin-selection # start selecting text with "v"
