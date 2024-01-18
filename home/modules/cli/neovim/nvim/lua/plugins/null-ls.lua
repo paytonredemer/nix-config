@@ -2,7 +2,7 @@ return {
   "jay-babu/mason-null-ls.nvim",
   dependencies = {
     "williamboman/mason.nvim",
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
   },
   event = { "BufReadPre", "BufNewFile" },
   opts = function()
@@ -18,7 +18,6 @@ return {
         null_ls.builtins.diagnostics.mypy,
         null_ls.builtins.code_actions.shellcheck,
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.diagnostics.ansiblelint,
       },
     })
 

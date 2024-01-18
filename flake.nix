@@ -14,9 +14,14 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, nixos-wsl, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, nixos-wsl, nixvim, ... }@inputs: {
     nixosConfigurations = {
       t480s = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -41,7 +46,10 @@
     };
     homeConfigurations = {
       "payton@wsl" = home-manager.lib.homeManagerConfiguration {
-        modules = [ ./home/payton/wsl.nix ];
+        modules = [ 
+          ./home/payton/wsl.nix
+          nixvim.homeManagerModules.nixvim
+        ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
     };

@@ -4,9 +4,10 @@
     ./fish.nix
     ./git.nix
     ./starship.nix
-    # ./neovim
+    ./neovim
     ./tmux.nix
     # ./lf.nix
+    # ./nixvim.nix
   ];
   programs.zoxide.enable = true;
 }

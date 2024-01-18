@@ -1,5 +1,3 @@
 return {
-  { "tpope/vim-fugitive" },
-  { "tpope/vim-surround" },
-  { "tpope/vim-sleuth"   },
+  { "tpope/vim-sleuth" },
 }
