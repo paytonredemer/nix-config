@@ -24,7 +24,7 @@
 
     colorcolumn = "80";
 
-    # listchars = "{ eol = \"↵\", trail = \"~\", tab = \">-\", nbsp = \"␣\" }";
     list = true;
+    listchars = "eol:↵,trail:~,tab:>-,nbsp:␣";
   };
 }

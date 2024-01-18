@@ -11,13 +11,13 @@
       { mode = "n"; key = "<C-j>"; action = "<C-w>j"; }
       { mode = "n"; key = "<C-k>"; action = "<C-w>k"; }
       { mode = "n"; key = "<C-l>"; action = "<C-w>l"; }
-      
+
       # move text up and down
       { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; }
       { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
-      
+
       { mode = "n"; key = "L"; action = "$"; }
-      
+
       # centered actions
       { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; }
       { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; }
