@@ -7,7 +7,7 @@
     ./neovim
     ./tmux.nix
     # ./lf.nix
-    # ./nixvim.nix
+    # ./nixvim
   ];
   programs.zoxide.enable = true;
 }
