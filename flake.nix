@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,6 +51,7 @@
     };
     homeConfigurations = {
       "payton@wsl" = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs; };
         modules = [ 
           ./home/payton/wsl.nix
           nixvim.homeManagerModules.nixvim

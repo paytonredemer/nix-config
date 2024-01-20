@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
   home.username = "payton";
@@ -16,6 +16,10 @@
     allowUnfree = true;
     allowUnfreePredicate = (_: true);
   };
+
+  nixpkgs.overlays = [
+    inputs.neovim-nightly-overlay.overlay
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
