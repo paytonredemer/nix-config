@@ -13,6 +13,24 @@
       nodejs_21
       ripgrep 
       fd
+      # LSPs
+      clang-tools
+      nodePackages.pyright
+      lua-language-server
+      rust-analyzer
+      nil
+      nodePackages.bash-language-server
+      typescript
+      nodePackages.eslint
+      ltex-ls
+      # rPackages.languageserver # not working
+      # null-ls
+      nodePackages.cspell
+      nodePackages.alex
+      black
+      mypy
+      shellcheck
+      stylua
     ];
   };
   xdg.configFile = {
