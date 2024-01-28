@@ -6,6 +6,7 @@
     defaultEditor = true;
     vimAlias = true;
     extraPackages = with pkgs; [
+      # General nvim dependencies
       tree-sitter
       unzip
       wget
@@ -13,23 +14,30 @@
       nodejs_21
       ripgrep 
       fd
+
       # LSPs
       clang-tools
-      nodePackages.pyright
+      ltex-ls
       lua-language-server
-      rust-analyzer
       nil
       nodePackages.bash-language-server
-      typescript
       nodePackages.eslint
-      ltex-ls
+      nodePackages.pyright
       # rPackages.languageserver # not working
+      rust-analyzer
+      typescript
+
       # null-ls
-      nodePackages.cspell
-      nodePackages.alex
+      alejandra
       black
+      codespell
+      commitlint
+      gitlint
       mypy
+      nodePackages.alex
+      proselint
       shellcheck
+      shfmt
       stylua
     ];
   };
