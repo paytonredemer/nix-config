@@ -8,16 +8,16 @@
 { inputs, lib, pkgs, ... }:
 
 {
-  # imports = [
-  #   # include NixOS-WSL modules
-  #   <nixos-wsl/modules>
-  # ];
+  imports = [
+    ../../modules/tailscale.nix
+  ];
 
   wsl = {
     enable = true;
     defaultUser = "payton";
   };
 
+  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   users.users.payton = {
@@ -50,6 +50,9 @@
     nodejs_21
     wget
     unzip
+    zola
+    vscode-extensions.ms-vscode.cpptools
+    gdb
   ];
 
   # This value determines the NixOS release from which the default
