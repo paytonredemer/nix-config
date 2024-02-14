@@ -33,7 +33,7 @@
       };
       hostname = {
         ssh_only = false;
-        format = "[$ssh_symbol](bold blue)[@](green)[$hostname](green) ";
+        format = "[@](green)[$hostname](green) ";
         trim_at = ".companyname.com";
         disabled = false;
       };
