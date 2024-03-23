@@ -1,8 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
+    { "folke/neodev.nvim", opts = {} },
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "hrsh7th/cmp-nvim-lsp",
-    "folke/neodev.nvim",
   },
   cmd = "LspInfo",
   event = { "BufReadPre", "BufNewFile" },
@@ -26,19 +27,16 @@ return {
       nmap("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
     end
 
-    require("neodev").setup()
-
     local servers = {
-      "clangd",
-      "pyright",
-      "lua_ls",
-      "rust_analyzer",
-      "nil_ls",
       "bashls",
-      "tsserver",
+      "clangd",
       "eslint",
       "ltex",
-      "r_language_server",
+      "lua_ls",
+      "nil_ls",
+      "pyright",
+      "rust_analyzer",
+      "tsserver",
     }
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -1,5 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
+  dependencies = { "WhoIsSethDaniel/mason-tool-installer.nvim" },
   event = { "BufReadPre", "BufNewFile" },
   opts = function()
     local null_ls = require("null-ls")
@@ -17,15 +18,10 @@ return {
         null_ls.builtins.diagnostics.commitlint,
         null_ls.builtins.diagnostics.gitlint,
 
-        -- Nix
-        null_ls.builtins.formatting.alejandra,
-
         -- C
         null_ls.builtins.formatting.clang_format,
 
         -- Shell
-        null_ls.builtins.code_actions.shellcheck,
-        null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.formatting.shfmt,
 
         -- Python

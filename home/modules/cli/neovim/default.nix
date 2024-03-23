@@ -7,9 +7,8 @@
     vimAlias = true;
     extraPackages = with pkgs; [
       # General nvim dependencies
+      # TODO: Remove and install treesitter with nix
       tree-sitter
-      unzip
-      wget
       gcc
       nodejs_21
       ripgrep 

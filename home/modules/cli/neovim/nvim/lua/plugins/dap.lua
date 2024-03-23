@@ -1,5 +1,7 @@
+-- TODO: Get this working for job and decide on a better binding than d
 return {
   "mfussenegger/nvim-dap",
+  enabled = false,
   dependencies = {
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
@@ -33,6 +35,15 @@ return {
         request = "launch",
         program = function()
           return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = "${workspaceFolder}",
+      },
+      {
+        name = "Attach",
+        type = "gdb",
+        request = "attach",
+        program = function()
+          return require('dap.utils').pick_process
         end,
         cwd = "${workspaceFolder}",
       },

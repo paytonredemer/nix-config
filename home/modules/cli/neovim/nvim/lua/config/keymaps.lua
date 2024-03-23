@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- move to windows using one less key stroke
 vim.keymap.set("n", "<C-h>", "<C-w>h")
@@ -24,8 +25,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- tab navigation
-vim.keymap.set("n", "<Tab>", ":tabnext<cr>")
-vim.keymap.set("n", "<S-Tab>", ":tabprevious<cr>")
+-- vim.keymap.set("n", "<Tab>", ":tabnext<cr>")
+-- vim.keymap.set("n", "<S-Tab>", ":tabprevious<cr>")
 
 -- better macros
 vim.keymap.set("n", "Q", "@q")
