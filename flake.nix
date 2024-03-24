@@ -39,7 +39,14 @@
           nixos-hardware.nixosModules.common-gpu-intel
         ];
       };
-      # wsl
+      x220 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/x220/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
       wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
