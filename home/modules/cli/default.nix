@@ -2,8 +2,8 @@
   imports = [
     ./shell.nix
     ./fish.nix
-    # ./git.nix
-    ./work
+    ./git.nix
+    # ./work
     ./starship.nix
     ./neovim
     ./tmux.nix
@@ -11,5 +11,4 @@
     # ./nixvim
     ./zsh.nix
   ];
-  programs.zoxide.enable = true;
 }

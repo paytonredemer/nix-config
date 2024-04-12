@@ -26,7 +26,6 @@
   programs.fish.enable = true;
   programs.git.enable = true;
   programs.tmux.enable = true;
-  programs.zoxide.enable = true;
 
   environment.systemPackages = with pkgs; [
     home-manager
