@@ -55,6 +55,14 @@
           nixos-wsl.nixosModules.wsl
         ];
       };
+      work = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/work/configuration.nix
+          nixos-wsl.nixosModules.wsl
+        ];
+      };
     };
     homeConfigurations = {
       "payton@wsl" = home-manager.lib.homeManagerConfiguration {
@@ -62,6 +70,13 @@
         modules = [ 
           ./home/payton/wsl.nix
           nixvim.homeManagerModules.nixvim
+        ];
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      };
+      "redemerpayton@work" = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./home/payton/work.nix
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };

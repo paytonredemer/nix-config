@@ -1,4 +1,7 @@
 {
+  # HACK: Relies on connection to sourcehut which work doesn't allow
+  manual.manpages.enable = false;
+
   programs.git = {
     enable = true;
     userName = "Payton Redemer";
