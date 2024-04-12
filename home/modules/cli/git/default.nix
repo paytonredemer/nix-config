@@ -9,6 +9,11 @@
     aliases = {
       pu = "push";
     };
+    extraConfig = {
+      url = {
+        "git@github.com:".insteadOf = "https://github.com/";
+      };
+    };
     includes = [{
       condition = "gitdir:/grmn/**";
       contents = {
