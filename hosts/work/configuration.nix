@@ -43,6 +43,7 @@
     unzip
     vscode-extensions.ms-vscode.cpptools
     gdb
+    pre-commit
   ];
 
   # This value determines the NixOS release from which the default
