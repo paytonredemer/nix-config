@@ -23,6 +23,8 @@
     # ];
   };
 
+  virtualisation.docker.enable = true;
+
   programs.fish.enable = true;
   programs.git.enable = true;
   programs.tmux.enable = true;

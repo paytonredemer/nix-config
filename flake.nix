@@ -33,25 +33,25 @@
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, nixos-wsl, nixvim, ... }@inputs: {
     nixosConfigurations = {
-      t480s = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/t480s/configuration.nix
-          home-manager.nixosModules.home-manager
-          nixos-hardware.nixosModules.lenovo-thinkpad-t480s
-          nixos-hardware.nixosModules.common-cpu-intel-kaby-lake
-          nixos-hardware.nixosModules.common-gpu-intel
-        ];
-      };
-      x220 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/x220/configuration.nix
-          home-manager.nixosModules.home-manager
-        ];
-      };
+      # t480s = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   specialArgs = { inherit inputs; };
+      #   modules = [
+      #     ./hosts/t480s/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     nixos-hardware.nixosModules.lenovo-thinkpad-t480s
+      #     nixos-hardware.nixosModules.common-cpu-intel-kaby-lake
+      #     nixos-hardware.nixosModules.common-gpu-intel
+      #   ];
+      # };
+      # x220 = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   specialArgs = { inherit inputs; };
+      #   modules = [
+      #     ./hosts/x220/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #   ];
+      # };
       wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
