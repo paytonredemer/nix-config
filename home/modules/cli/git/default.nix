@@ -22,7 +22,7 @@
           editor = "nvim";
           longpaths = "true";
           whitespace = "cr-at-eol,tab-in-indent";
-          autocrlf = "true";
+          autocrlf = "input";
         };
         credential = {
           "https://git-lfs.garmin.com".provider = "generic";
