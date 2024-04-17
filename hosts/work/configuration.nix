@@ -1,6 +1,11 @@
-{ inputs, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  imports =
+    [
+      ../../modules/work.nix
+    ];
+
   wsl = {
     enable = true;
     defaultUser = "redemerpayton";
@@ -44,6 +49,7 @@
     vscode-extensions.ms-vscode.cpptools
     gdb
     pre-commit
+    python3
   ];
 
   # This value determines the NixOS release from which the default
