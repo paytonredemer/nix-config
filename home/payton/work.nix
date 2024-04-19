@@ -15,6 +15,7 @@
     ../modules/cli/tmux.nix
     ../modules/cli/lf.nix
     ../modules/cli/zsh.nix
+    ../modules/cli/yazi.nix
   ];
 
   # Enable unfree packages
