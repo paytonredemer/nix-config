@@ -1,13 +1,13 @@
 {
   imports = [
-    ./shell.nix
-    ./fish.nix
     ./git
-    ./starship.nix
     ./neovim
+    ./fish.nix
+    ./shell.nix
+    ./starship.nix
     ./tmux.nix
-    # ./nixvim
-    ./zsh.nix
     ./yazi.nix
+    ./zoxide.nix
+    ./zsh.nix
   ];
 }
