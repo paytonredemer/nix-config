@@ -2,13 +2,12 @@
   imports = [
     ./shell.nix
     ./fish.nix
-    ./git.nix
-    # ./work
+    ./git
     ./starship.nix
     ./neovim
     ./tmux.nix
-    # ./lf.nix
     # ./nixvim
     ./zsh.nix
+    ./yazi.nix
   ];
 }

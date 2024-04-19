@@ -7,9 +7,6 @@ in {
       set -U fish_greeting # disable fish greeting
       set -U fish_key_bindings fish_vi_key_bindings
 
-      bind \co 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
-      bind --mode insert \co 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
-
       fish_add_path $HOME/.local/bin/
     '';
     shellAbbrs = {
@@ -27,32 +24,6 @@ in {
       diff = "diff --color=auto";
       ":q" = "exit";
       ":wq" = "exit";
-    };
-    functions = {
-      lfcd.body = ''
-        set tmp (mktemp)
-        # `command` is needed in case `lfcd` is aliased to `lf`
-        command lf -last-dir-path=$tmp $argv
-        if test -f "$tmp"
-            set dir (cat $tmp)
-            rm -f $tmp
-            if test -d "$dir"
-                if test "$dir" != (pwd)
-                    cd $dir
-                end
-            end
-        end
-      '';
-
-      # TODO: Move to yazi.nix
-      yy.body = ''
-        set tmp (mktemp -t "yazi-cwd.XXXXXX")
-        yazi $argv --cwd-file="$tmp"
-        if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-            cd -- "$cwd"
-        end
-        rm -f -- "$tmp"
-      '';
     };
     plugins = [
       {

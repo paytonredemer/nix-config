@@ -44,7 +44,6 @@
     htop
     libqalculate
     gnumake
-    lf
     gcc
     xclip
     nodejs_21

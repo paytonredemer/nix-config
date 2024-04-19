@@ -137,7 +137,6 @@
     libqalculate
     mpd
     mpv
-    lf
     ranger
     python312
     python39
