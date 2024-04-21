@@ -68,6 +68,13 @@
           nixos-wsl.nixosModules.wsl
         ];
       };
+      teddy = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/teddy/configuration.nix
+        ];
+      };
     };
     homeConfigurations = {
       "payton@wsl" = home-manager.lib.homeManagerConfiguration {
@@ -82,6 +89,13 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./home/payton/work.nix
+        ];
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      };
+      "payton@teddy" = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ 
+          ./home/payton/wsl.nix
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
