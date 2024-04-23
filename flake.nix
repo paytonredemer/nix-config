@@ -20,6 +20,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvim-config = {
       url = "github:paytonredemer/nvim-config";
       flake = false;
@@ -31,7 +36,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, nixos-wsl, nixvim, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, nixos-wsl, agenix, nixvim, ... }@inputs: {
     nixosConfigurations = {
       # t480s = nixpkgs.lib.nixosSystem {
       #   system = "x86_64-linux";
@@ -44,14 +49,14 @@
       #     nixos-hardware.nixosModules.common-gpu-intel
       #   ];
       # };
-      # x220 = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   specialArgs = { inherit inputs; };
-      #   modules = [
-      #     ./hosts/x220/configuration.nix
-      #     home-manager.nixosModules.home-manager
-      #   ];
-      # };
+      x220 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/x220/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
       wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
