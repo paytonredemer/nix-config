@@ -41,10 +41,10 @@
     ];
   };
   xdg.configFile = {
-    "nvim/init.lua".source = "${inputs.nvim-config}/init.lua";
-    "nvim/lua".source = "${inputs.nvim-config}/lua";
-    "nvim/stylua.toml".source = "${inputs.nvim-config}/stylua.toml";
-    "nvim/lazy-lock.json".source = "${inputs.nvim-config}/lazy-lock.json";
+    "nvim/init.lua".source = ./nvim-config/init.lua;
+    "nvim/lua".source = ./nvim-config/lua;
+    "nvim/stylua.toml".source = ./nvim-config/stylua.toml;
+    "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/nix-config/home/modules/cli/neovim/nvim-config/lazy-lock.json";
     # Below may be needed if treesitter parsers break for some reason: https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position
     # "nvim/parser".source = "${pkgs.symlinkJoin { name = "treesitter-parsers"; paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies; }}/parser";
   };

@@ -1,0 +1,3 @@
+[submodule "home/modules/cli/neovim/nvim-config"]
+	path = home/modules/cli/neovim/nvim-config
+	url = https://github.com/paytonredemer/nvim-config.git
