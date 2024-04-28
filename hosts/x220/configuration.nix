@@ -30,8 +30,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.payton = {
     isNormalUser = true;
-    # TODO: remove networkmanager group here and add to networking.nix?
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
     packages = with pkgs; [
       firefox
     ];

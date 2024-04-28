@@ -21,7 +21,7 @@
   users.users.payton = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
   };
   programs.fish.enable = true;
 

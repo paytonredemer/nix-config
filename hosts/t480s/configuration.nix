@@ -79,7 +79,7 @@
   users.users.payton = {
     isNormalUser = true;
     description = "Payton Redemer";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       arandr
