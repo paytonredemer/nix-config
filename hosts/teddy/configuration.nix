@@ -34,7 +34,7 @@
     gnumake
     gcc
     xclip
-    nodejs_21
+    nodejs_22
     wget
     unzip
     zola

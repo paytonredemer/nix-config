@@ -42,7 +42,7 @@
     gnumake
     gcc
     xclip
-    nodejs_21
+    nodejs_22
     wget
     unzip
     vscode-extensions.ms-vscode.cpptools

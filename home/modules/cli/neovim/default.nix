@@ -10,7 +10,7 @@
       # TODO: Remove and install treesitter with nix
       tree-sitter
       gcc
-      nodejs_21
+      nodejs_22
       ripgrep 
       fd
 
@@ -30,7 +30,7 @@
       alejandra
       black
       codespell
-      commitlint
+      commitlint # this is broken
       gitlint
       mypy
       nodePackages.alex
