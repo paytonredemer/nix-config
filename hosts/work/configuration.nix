@@ -4,15 +4,15 @@
   imports =
     [
       ../../modules/work.nix
+      ../../modules/base.nix
+      ../../modules/nix.nix
+      ../../modules/ssh.nix
     ];
 
   wsl = {
     enable = true;
     defaultUser = "redemerpayton";
   };
-
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   users.users.redemerpayton = {
     isNormalUser = true;
