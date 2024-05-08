@@ -34,6 +34,7 @@ vim.keymap.set("x", "Q", ":norm @q<CR>")
 
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
+-- TODO: move functions to another file
 -- diagnostics
 local diagnostic_goto = function(next, severity)
   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
@@ -49,3 +50,18 @@ vim.keymap.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" 
 vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
+
+-- TODO: Add this to neorg plugin file and lazy load
+local get_neorg_link = function()
+  local lnum = vim.fn.getcurpos()[2]
+
+  local file = vim.fn.expand("%:p")
+  file = file:gsub("\\", "/")
+  file = file:gsub("C:", "")
+
+  local link = "{/ " .. file .. ":" .. lnum .. "}"
+
+  vim.fn.setreg('"', link)
+  vim.notify("Copied " .. link .. " to vim clipboard")
+end
+vim.keymap.set("n", "<leader>nl", get_neorg_link, { desc = "[N]eorg [L]ink" })
