@@ -34,6 +34,11 @@ vim.keymap.set("x", "Q", ":norm @q<CR>")
 
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
+vim.keymap.set("n", "<M-,>", "<c-w>5<")
+vim.keymap.set("n", "<M-.>", "<c-w>5>")
+vim.keymap.set("n", "<M-t>", "<C-W>+")
+vim.keymap.set("n", "<M-T>", "<C-W>-")
+
 -- TODO: move functions to another file
 -- diagnostics
 local diagnostic_goto = function(next, severity)
