@@ -43,7 +43,9 @@
       # status
       set -g status-style 'bg=terminal fg=terminal'
       set-option -g status-position top
-      set-option -g status-right '%a, %b %d %I:%M %p'
+      set-option -g status-left ""
+      set-option -g status-right ""
+      set-option -g status-justify 'right'
 
       bind-key -T copy-mode-vi v send -X begin-selection # start selecting text with "v"
       bind-key -T copy-mode-vi y send -X copy-selection # copy text with "y"
