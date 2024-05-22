@@ -1,5 +1,6 @@
 return {
   "nvim-neorg/neorg",
+  enabled = false,
   dependencies = { "nvim-lua/plenary.nvim" },
   build = ":Neorg sync-parsers",
   version = "v7.0.0", -- pin to version that doesn't require luarocks
