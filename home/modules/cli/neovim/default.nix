@@ -5,6 +5,7 @@
     package = pkgs.neovim-nightly;
     defaultEditor = true;
     vimAlias = true;
+    extraLuaPackages = luaPkgs: with luaPkgs; [lua-utils-nvim nvim-nio pathlib-nvim];
     extraPackages = with pkgs; [
       # General nvim dependencies
       # TODO: Remove and install treesitter with nix
@@ -13,6 +14,8 @@
       nodejs_22
       ripgrep 
       fd
+      lua
+      luajit
 
       # LSPs
       clang-tools
