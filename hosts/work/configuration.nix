@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
     [
       ../../modules/work.nix
       ../../modules/base.nix
+      ../../modules/emacs.nix
       ../../modules/nix.nix
       ../../modules/ssh.nix
     ];
