@@ -28,6 +28,9 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- vim.keymap.set("n", "<Tab>", ":tabnext<cr>")
 -- vim.keymap.set("n", "<S-Tab>", ":tabprevious<cr>")
 
+-- toggle cursorline
+vim.keymap.set("n", "<leader>ul", "<cmd>set cursorline!<cr>", { desc = "[U]i Cursor[L]ine" })
+
 -- better macros
 vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("x", "Q", ":norm @q<CR>")
