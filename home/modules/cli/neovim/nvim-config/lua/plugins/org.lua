@@ -2,7 +2,6 @@ return {
   "nvim-orgmode/orgmode",
   dependencies = {
     { "nvim-orgmode/org-bullets.nvim", opts = {} },
-    { "lukas-reineke/headlines.nvim",  opts = {} },
     { "dhruvasagar/vim-table-mode" },
   },
   event = "VeryLazy",
