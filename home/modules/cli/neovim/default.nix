@@ -44,6 +44,7 @@
     ];
   };
   xdg.configFile = {
+    "nvim/after".source = ./nvim-config/after;
     "nvim/init.lua".source = ./nvim-config/init.lua;
     "nvim/lua".source = ./nvim-config/lua;
     "nvim/stylua.toml".source = ./nvim-config/stylua.toml;
