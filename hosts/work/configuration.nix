@@ -50,6 +50,7 @@
     gdb
     pre-commit
     python3
+    python312Packages.six # needed for work script
     wsl-open
   ];
 
