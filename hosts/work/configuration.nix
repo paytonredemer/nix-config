@@ -50,6 +50,7 @@
     gdb
     pre-commit
     python3
+    wsl-open
   ];
 
   # This value determines the NixOS release from which the default
