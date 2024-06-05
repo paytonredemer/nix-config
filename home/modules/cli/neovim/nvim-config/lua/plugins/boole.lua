@@ -5,5 +5,6 @@ return {
       increment = "<C-a>",
       decrement = "<C-x>",
     },
+    keys = { "<C-a>", "<C-x>" },
   },
 }
