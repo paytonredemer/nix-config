@@ -34,7 +34,7 @@ return {
         template =
         "** TODO [#C] %?\nDEADLINE: %^t\n  :PROPERTIES:\n  :CREATED: %U\n  :JIRA: [[][JIRA-XXXX]]\n  :PRODUCT:\n  :FEATURES:\n  :PATCH:\n  :END:\n\n*** Notes\n*** Time",
         target = "~/Documents/org/work/tickets.org",
-        headline = "Current Tickets",
+        -- headline = "Current Tickets",
       },
       c = {
         description = "Code Snippet",
