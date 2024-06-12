@@ -24,10 +24,6 @@
     allowUnfreePredicate = (_: true);
   };
 
-  nixpkgs.overlays = [
-    inputs.neovim-nightly-overlay.overlay
-  ];
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

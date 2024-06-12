@@ -2,7 +2,7 @@
 {
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     defaultEditor = true;
     vimAlias = true;
     extraLuaPackages = luaPkgs: with luaPkgs; [lua-utils-nvim nvim-nio pathlib-nvim];
@@ -24,7 +24,7 @@
       nil
       nodePackages.bash-language-server
       nodePackages.eslint
-      nodePackages.pyright
+      pyright
       # rPackages.languageserver # not working
       rust-analyzer
       typescript
