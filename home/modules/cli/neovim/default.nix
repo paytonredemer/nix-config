@@ -5,7 +5,8 @@
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     defaultEditor = true;
     vimAlias = true;
-    extraLuaPackages = luaPkgs: with luaPkgs; [lua-utils-nvim nvim-nio pathlib-nvim];
+    # TODO: Figure out why I have these here(jsregexp is for luasnip)
+    extraLuaPackages = luaPkgs: with luaPkgs; [lua-utils-nvim nvim-nio pathlib-nvim jsregexp];
     extraPackages = with pkgs; [
       # General nvim dependencies
       # TODO: Remove and install treesitter with nix
