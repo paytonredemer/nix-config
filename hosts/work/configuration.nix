@@ -50,7 +50,10 @@
     gdb
     pre-commit
     python3
+    # TODO: These don't work... make into devshell
     python312Packages.six # needed for work script
+    python311Packages.six # unlock script
+    python311Packages.pycryptodome # unlock script
     wsl-open
   ];
 
