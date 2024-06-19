@@ -7,6 +7,17 @@
     ln -sfn ${pkgs.bash}/bin/bash /bin/bash
     '';
 
+  environment.systemPackages = with pkgs; [
+    (writeShellScriptBin "gb" ''
+      # Launch Git Bash in current directory on Windows D drive
+      powershell.exe -NoExit -Command "Set-Location 'D:$(pwd)'; C:\Program\` Files\Git\bin\bash.exe --login -i"
+    '')
+    (writeShellScriptBin "ps" ''
+      # Launch Powershell in current directory on Windows D drive
+      powershell.exe -NoExit -Command "Set-Location 'D:$(pwd)'"
+    '')
+  ];
+
   programs.nix-ld.enable = true;
 
   programs.nix-ld.libraries = with pkgs; [
