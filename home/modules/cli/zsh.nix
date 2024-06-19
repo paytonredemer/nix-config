@@ -3,8 +3,23 @@ let
   editor = "nvim";
 in
 {
+  # TODO: Add more options from dotfiles and make default shell
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting = {
+      enable = true;
+      # TODO: Update this better
+      highlighters = [ "main" "brackets" "pattern" "root" "line" ];
+    };
+    autocd = true;
+    defaultKeymap = "viins";
+    history = {
+      ignoreDups = true;
+      share = true;
+    };
+
     zsh-abbr = {
       enable = true;
       abbreviations = {
