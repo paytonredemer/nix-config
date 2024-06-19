@@ -53,6 +53,7 @@
     python312Packages.six # needed for work script
     python311Packages.six # unlock script
     python311Packages.pycryptodome # unlock script
+    python311Packages.requests # error log parser
     wsl-open
   ];
 
