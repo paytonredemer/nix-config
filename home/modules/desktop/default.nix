@@ -11,5 +11,4 @@
   ];
 
   services.picom.enable = true;
-  services.xscreensaver.enable = true;
 }
