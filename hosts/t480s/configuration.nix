@@ -27,6 +27,8 @@
   environment.systemPackages = with pkgs; [
     home-manager
     firefox
+    # add overlay instead of manually downloading
+    citrix_workspace
   ];
 
   system.stateVersion = "23.11";
