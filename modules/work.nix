@@ -12,7 +12,7 @@
       # Launch Git Bash in current directory on Windows D drive
       powershell.exe -NoExit -Command "Set-Location 'D:$(pwd)'; C:\Program\` Files\Git\bin\bash.exe --login -i"
     '')
-    (writeShellScriptBin "ps" ''
+    (writeShellScriptBin "gp" ''
       # Launch Powershell in current directory on Windows D drive
       powershell.exe -NoExit -Command "Set-Location 'D:$(pwd)'"
     '')
