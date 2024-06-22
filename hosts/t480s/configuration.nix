@@ -15,6 +15,8 @@
       ../../modules/user.nix
     ];
 
+  tailscale.enable = true;
+
   networking.hostName = "t480s";
   time.timeZone = "America/Chicago";
 

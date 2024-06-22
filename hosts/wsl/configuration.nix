@@ -11,6 +11,7 @@
   imports = [
     ../../modules/tailscale.nix
   ];
+  tailscale.enable = true;
 
   wsl = {
     enable = true;

@@ -10,6 +10,7 @@
       ../../modules/ssh.nix
       ../../modules/tailscale.nix
     ];
+  tailscale.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
