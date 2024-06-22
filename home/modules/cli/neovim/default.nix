@@ -33,12 +33,12 @@
       typescript
 
       # null-ls
-      alejandra
       black
       codespell
       commitlint # this is broken
       gitlint
       mypy
+      nixfmt-rfc-style
       nodePackages.alex
       proselint
       shellcheck

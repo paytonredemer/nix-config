@@ -1,5 +1,8 @@
-{lib, config, ... }: 
-let cfg = config.tailscale; in {
+{ lib, config, ... }:
+let
+  cfg = config.tailscale;
+in
+{
   options = {
     tailscale.enable = lib.mkEnableOption "Enables tailscale";
   };
@@ -8,7 +11,10 @@ let cfg = config.tailscale; in {
     services.tailscale = {
       enable = true;
       useRoutingFeatures = "both";
-      extraUpFlags = ["--advertise-exit-node" "--ssh"];
+      extraUpFlags = [
+        "--advertise-exit-node"
+        "--ssh"
+      ];
     };
   };
 }

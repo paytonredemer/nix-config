@@ -30,6 +30,10 @@ return {
 
         -- Lua
         null_ls.builtins.formatting.stylua,
+
+        -- Nix
+        -- TODO: Might break on Windows because there is no mason package
+        null_ls.builtins.formatting.nixfmt
       },
     }
   end,
