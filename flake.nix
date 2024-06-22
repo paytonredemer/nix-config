@@ -34,6 +34,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, nixos-wsl, agenix, nixvim, ... }@inputs: {

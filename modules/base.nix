@@ -10,5 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     ripgrep
+    fzf
+    gnumake
   ];
 }

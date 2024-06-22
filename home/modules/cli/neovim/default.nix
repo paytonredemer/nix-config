@@ -17,6 +17,8 @@
       fd
       lua
       luajit
+      fzf
+      gnumake
 
       # LSPs
       clang-tools

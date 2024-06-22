@@ -39,7 +39,6 @@
     fzf
     htop
     libqalculate
-    gnumake
     gcc
     xclip
     nodejs_22

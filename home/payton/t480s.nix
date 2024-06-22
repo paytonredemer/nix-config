@@ -9,6 +9,7 @@
   imports = [
     ../modules/cli
     ../modules/desktop
+    ../modules/desktop/hyprland.nix
   ];
 
   # Enable unfree packages

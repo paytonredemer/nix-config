@@ -13,6 +13,7 @@
       ../../modules/sound.nix
       ../../modules/printing.nix
       ../../modules/user.nix
+      ../../modules/hyprland.nix
     ];
 
   tailscale.enable = true;
@@ -21,16 +22,16 @@
   time.timeZone = "America/Chicago";
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
     firefox
     # add overlay instead of manually downloading
-    citrix_workspace
+    # citrix_workspace
   ];
 
   system.stateVersion = "23.11";

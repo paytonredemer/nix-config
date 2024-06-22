@@ -27,7 +27,7 @@
         };
 
         # dark | light | None
-        gtk_theme_variant = "None";
+        # gtk_theme_variant = "None";
       };
       scrolling = {
         # Maximum number of lines in the scrollback buffer.
@@ -55,14 +55,14 @@
           family = "FiraCode Nerd Font";
           style = "Bold Italic";
         };
-        size = 10.0;
+        size = 12.0;
 
         offset = {
           x = 0; # Modifies the letter spacing
           y = 0; # Modifies the line spacing
         };
       };
-      draw_bold_text_with_bright_colors = true;
+      colors.draw_bold_text_with_bright_colors = true;
       colors = {
         primary = {
           background = "#1d1f21";
@@ -122,43 +122,43 @@
         command = "None";
       };
       selection.save_to_clipboard = true;
-      cursor.style = {
-        # Cursor shape
-        #
-        # Values for `shape`:
-        #   - ▇ Block
-        #   - _ Underline
-        #   - | Beam
-        shape = "Block";
-
-        # Cursor blinking state
-        #
-        # Values for `blinking`:
-        #   - Never: Prevent the cursor from ever blinking
-        #   - Off: Disable blinking by default
-        #   - On: Enable blinking by default
-        #   - Always: Force the cursor to always blink
-        blinking = "Off";
-
-        # Vi mode cursor style
-        #
-        # If the vi mode cursor style is `None` or not specified, it will fall back to
-        # the style of the active value of the normal cursor.
-        #
-        # See `cursor.style` for available options.
-        vi_mode_style = "None";
-
-        # Cursor blinking interval in milliseconds.
-        blink_interval = 750;
-
-        # If this is `true`, the cursor will be rendered as a hollow box when the
-        # window is not focused.
-        #unfocused_hollow = true;
-
-        # Thickness of the cursor relative to the cell width as floating point number
-        # from `0.0` to `1.0`.
-        #thickness = 0.15;
-      };
+      # cursor.style = {
+      #   # Cursor shape
+      #   #
+      #   # Values for `shape`:
+      #   #   - ▇ Block
+      #   #   - _ Underline
+      #   #   - | Beam
+      #   shape = "Block";
+      #
+      #   # Cursor blinking state
+      #   #
+      #   # Values for `blinking`:
+      #   #   - Never: Prevent the cursor from ever blinking
+      #   #   - Off: Disable blinking by default
+      #   #   - On: Enable blinking by default
+      #   #   - Always: Force the cursor to always blink
+      #   blinking = "Off";
+      #
+      #   # Vi mode cursor style
+      #   #
+      #   # If the vi mode cursor style is `None` or not specified, it will fall back to
+      #   # the style of the active value of the normal cursor.
+      #   #
+      #   # See `cursor.style` for available options.
+      #   vi_mode_style = "None";
+      #
+      #   # Cursor blinking interval in milliseconds.
+      #   blink_interval = 750;
+      #
+      #   # If this is `true`, the cursor will be rendered as a hollow box when the
+      #   # window is not focused.
+      #   #unfocused_hollow = true;
+      #
+      #   # Thickness of the cursor relative to the cell width as floating point number
+      #   # from `0.0` to `1.0`.
+      #   #thickness = 0.15;
+      # };
       live_config_reload = true;
       working_directory = "None";
     };
