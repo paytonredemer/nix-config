@@ -1,7 +1,7 @@
 {
   services.xserver.displayManager.startx.enable = true;
-  services.xserver.windowManager.i3 = {
+  services.xserver.windowManager.sway = {
     enable = true;
-    configFile = ./config;
+    # configFile = ./config;
   };
 }

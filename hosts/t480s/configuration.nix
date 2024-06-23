@@ -14,6 +14,7 @@
       ../../modules/printing.nix
       ../../modules/user.nix
       ../../modules/hyprland.nix
+      ../../modules/i3
     ];
 
   tailscale.enable = true;

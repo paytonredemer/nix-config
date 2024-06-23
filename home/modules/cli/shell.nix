@@ -4,7 +4,7 @@ in {
   home.sessionVariables = {
     EDITOR = editor;
     BROWSER = "firefox";
-    TERMINAL = "alacritty";
+    TERMINAL = "wezterm";
     VISUAL = editor;
     # xdg
     XDG_CONFIG_HOME = "$HOME/.config";

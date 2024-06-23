@@ -1,12 +1,45 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 {
-  xsession.windowManager.i3 = {
+  imports = [
+    ./i3status.nix
+  ];
+
+  # TODO: This should probably go in its own file
+  home.packages = with pkgs; [
+    # Script to control to laptop backlight and display notification with new brightness percentage
+    (writeShellApplication {
+      name = "brightness-ctl";
+      runtimeInputs = with pkgs; [
+        brightnessctl
+        gawk
+        libnotify
+      ];
+      text = ''
+
+        case $1 in
+            up)
+                brightnessctl set +5%
+                ;;
+            down)
+                brightnessctl set 5%-
+                ;;
+        esac
+
+        brightness=$(awk "BEGIN {print $(brightnessctl get) / $(brightnessctl max) * 100}")
+
+        notify-send -t 1000 -r 100 "   Brightness" "$brightness%"
+      '';
+    })
+  ];
+
+  wayland.windowManager.sway = {
     enable = true;
     config = rec {
       modifier = "Mod4";
       floating.modifier = "${modifier}";
 
       gaps = {
+        smartBorders = "on";
         inner = 12;
         outer = 0;
       };
@@ -17,16 +50,15 @@
       #   size = 11.0;
       # };
 
-      smartBorders = "on";
       window.border = 2;
 
       bars = [
         {
           fonts = {
             names = [ "FiraCode Nerd Font Mono" ];
-            size = 11;
+            size = 11.0;
           };
-          # statusCommand = "i3status-rs $HOME/.config/i3status-rust/config-top.toml";
+          statusCommand = "i3status-rs $HOME/.config/i3status-rust/config-top.toml";
           position = "top";
           mode = "dock";
           # modifier is not a real option?
@@ -85,8 +117,8 @@
         "${modifier}+b" = "bar mode toggle";
 
         # gaps
-        "${modifier}+g" = "gaps inner current toggle ${gaps.inner}; gaps outer current toggle ${gaps.outer}";
-        "${modifier}+Shift+g" = "gaps inner current set ${gaps.inner}; gaps outer current set ${gaps.outer}";
+        # "${modifier}+g" = "gaps inner current toggle ${gaps.inner}; gaps outer current toggle ${gaps.outer}";
+        # "${modifier}+Shift+g" = "gaps inner current set ${gaps.inner}; gaps outer current set ${gaps.outer}";
         "${modifier}+Shift+plus" = "gaps inner current minus 5";
         "${modifier}+Shift+minus" = "gaps inner current plus 5";
 

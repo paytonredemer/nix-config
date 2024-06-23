@@ -10,6 +10,8 @@
     ../modules/cli
     ../modules/desktop
     ../modules/desktop/hyprland.nix
+    ../modules/desktop/waybar.nix
+    ../modules/desktop/i3.nix
   ];
 
   # Enable unfree packages

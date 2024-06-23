@@ -1,21 +1,19 @@
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     settings = {
-      monitor=",preferred,auto,auto";
-      # exec-once = "$terminal";
-      # exec-once = nm-applet &l
-      # exec-once = "waybar & hyprpaper & firefox";
-
+      # monitor = ",preferred,auto,auto";
+      monitor = "eDP-1,1920x1080@60,0x0,auto";
+      exec-once = "waybar";
 
       env = [
         "XCURSOR_SIZE,24"
-          "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_SIZE,24"
       ];
 
-
-      general = { 
+      general = {
         gaps_in = 5;
         gaps_out = 20;
 
@@ -117,16 +115,35 @@
         "$mainMod, W, exec, firefox"
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
+        "$mainMod, F, fullscreen,"
         "$mainMod, Space, togglefloating,"
         # "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo," # dwindle
         "$mainMod, J, togglesplit," # dwindle
+
+        # Move focus with mainMod + vim keys
+        "$mainMod, h, movefocus, l"
+        "$mainMod, j, movefocus, d"
+        "$mainMod, k, movefocus, u"
+        "$mainMod, l, movefocus, r"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
+
+        # Move window with mainMod + shift + arrow keys
+        "$mainMod SHIFT, left, movewindow, l"
+        "$mainMod SHIFT, right, movewindow, r"
+        "$mainMod SHIFT, up, movewindow, u"
+        "$mainMod SHIFT, down, movewindow, d"
+
+        # Move window with mainMod + shift + vim keys
+        "$mainMod SHIFT, h, movewindow, l"
+        "$mainMod SHIFT, j, movewindow, d"
+        "$mainMod SHIFT, k, movewindow, u"
+        "$mainMod SHIFT, l, movewindow, r"
 
         # Switch workspaces with mainMod + [0-9]
         "$mainMod, 1, workspace, 1"
