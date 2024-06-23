@@ -1,10 +1,8 @@
 { pkgs, lib, ... }:
 {
-  imports = [
-    ./i3status.nix
-  ];
+  imports = [ ./i3status.nix ];
 
-  # TODO: This should probably go in its own file
+  # TODO: This should probably go in its own file and scripts should be redone
   home.packages = with pkgs; [
     # Script to control to laptop backlight and display notification with new brightness percentage
     (writeShellApplication {
@@ -30,6 +28,57 @@
         notify-send -t 1000 -r 100 "   Brightness" "$brightness%"
       '';
     })
+    # Script to control volume and signal to a blocks program
+    (writeShellApplication {
+      name = "volume-ctl";
+      runtimeInputs = with pkgs; [ pulseaudio ];
+      text = ''
+        case $1 in
+            up)
+                pactl set-sink-volume @DEFAULT_SINK@ +5%
+                ;;
+            down)
+                pactl set-sink-volume @DEFAULT_SINK@ -5%
+                ;;
+            mute)
+                pactl set-sink-mute @DEFAULT_SINK@ toggle
+                ;;
+            mute-input)
+                pactl set-source-mute 1 toggle
+                ;;
+        esac
+      '';
+    })
+    # This script was made by `goferito` on Github.
+    # Some cleanup by Luke.
+    (writeShellApplication {
+      name = "i3resize";
+      runtimeInputs = with pkgs; [ pulseaudio ];
+      text = ''
+        [ -z "$1" ] && echo "No direction provided" && exit 1
+        distanceStr="2 px or 2 ppt"
+
+        moveChoice() {
+          swaymsg resize "$1" "$2" "$distanceStr" | grep '"success":true' || \
+            swaymsg resize "$3" "$4" "$distanceStr"
+        }
+
+        case $1 in
+          up)
+            moveChoice grow up shrink down
+            ;;
+          down)
+            moveChoice shrink up grow down
+            ;;
+          left)
+            moveChoice shrink right grow left
+            ;;
+          right)
+            moveChoice grow right shrink left
+            ;;
+        esac
+      '';
+    })
   ];
 
   wayland.windowManager.sway = {
@@ -50,6 +99,7 @@
       #   size = 11.0;
       # };
 
+      defaultWorkspace = "workspace number 1";
       window.border = 2;
 
       bars = [
@@ -61,8 +111,6 @@
           statusCommand = "i3status-rs $HOME/.config/i3status-rust/config-top.toml";
           position = "top";
           mode = "dock";
-          # modifier is not a real option?
-          # modifier = "none";
           trayOutput = "primary";
         }
       ];
@@ -117,8 +165,8 @@
         "${modifier}+b" = "bar mode toggle";
 
         # gaps
-        # "${modifier}+g" = "gaps inner current toggle ${gaps.inner}; gaps outer current toggle ${gaps.outer}";
-        # "${modifier}+Shift+g" = "gaps inner current set ${gaps.inner}; gaps outer current set ${gaps.outer}";
+        "${modifier}+g" = "gaps inner current toggle ${toString gaps.inner}; gaps outer current toggle ${toString gaps.outer}";
+        "${modifier}+Shift+g" = "gaps inner current set ${toString gaps.inner}; gaps outer current set ${toString gaps.outer}";
         "${modifier}+Shift+plus" = "gaps inner current minus 5";
         "${modifier}+Shift+minus" = "gaps inner current plus 5";
 
@@ -186,15 +234,4 @@
       };
     };
   };
-
-  # programs.i3status-rust = {
-  #   enable = true;
-  #   bars = {
-  #     top = {
-  #       blocks = [
-  #
-  #       ];
-  #     };
-  #   };
-  # };
 }
