@@ -1,51 +1,61 @@
+{ config, lib, ... }:
+let
+  cfg = config.cli.git;
+in
 {
-  manual.manpages.enable = false;
+  options = {
+    cli.git.enable = lib.mkEnableOption "Enables git configuration";
+  };
 
   # TODO: Add signing config option
-  programs.git = {
-    enable = true;
-    userName = "Payton Redemer";
-    userEmail = "paytonredemer@gmail.com";
-    aliases = {
-      pu = "push";
-    };
-    extraConfig = {
-      url = {
-        "git@github.com:".insteadOf = "https://github.com/";
+  config = lib.mkIf cfg.enable {
+    programs.git = {
+      enable = true;
+      userName = "Payton Redemer";
+      userEmail = "paytonredemer@gmail.com";
+      aliases = {
+        pu = "push";
       };
-    };
-    includes = [{
-      condition = "gitdir:/grmn/**";
-      contents = {
-        user.email = "payton.redemer@garmin.com";
-        core = {
-          editor = "nvim";
-          longpaths = "true";
-          whitespace = "cr-at-eol,tab-in-indent";
-          autocrlf = "input";
+      extraConfig = {
+        url = {
+          "git@github.com:".insteadOf = "https://github.com/";
         };
-        credential = {
-          "https://git-lfs.garmin.com".provider = "generic";
-          "https://gerrit.consumer.garmin.com" = {
-            provider = "generic";
+      };
+      includes = [
+        {
+          condition = "gitdir:/grmn/**";
+          contents = {
+            user.email = "payton.redemer@garmin.com";
+            core = {
+              editor = "nvim";
+              longpaths = "true";
+              whitespace = "cr-at-eol,tab-in-indent";
+              autocrlf = "input";
+            };
+            credential = {
+              "https://git-lfs.garmin.com".provider = "generic";
+              "https://gerrit.consumer.garmin.com" = {
+                provider = "generic";
+              };
+            };
+            # I think this is deprecated but IDK
+            # url = {
+            # "\"ssh://git@gitdist.consumer.garmin.com:29418/\"" = {
+            # insteadOf = "ssh://git@gitdist.consumer.garmin.com/";
+            # insteadOf = "ssh://gitdist.consumer.garmin.com/";
+            #   };
+            # };
+            merge.ff = "false";
+            fetch = {
+              recurseSubmodules = "false";
+              prune = "true";
+            };
+            commit.template = builtins.toPath ./git-template.txt;
+            color.ui = "true";
+            difftool.prompt = "false";
           };
-        };
-        # I think this is deprecated but IDK
-        # url = {
-        # "\"ssh://git@gitdist.consumer.garmin.com:29418/\"" = {
-        # insteadOf = "ssh://git@gitdist.consumer.garmin.com/";
-        # insteadOf = "ssh://gitdist.consumer.garmin.com/";
-        #   };
-        # };
-        merge.ff = "false";
-        fetch = {
-          recurseSubmodules = "false";
-          prune = "true";
-        };
-        commit.template = builtins.toPath ./git-template.txt;
-        color.ui = "true";
-        difftool.prompt = "false";
-      };
-    }];
+        }
+      ];
+    };
   };
 }

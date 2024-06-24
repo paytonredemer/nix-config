@@ -103,6 +103,7 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./home/payton/work.nix
+          ./home/modules
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
