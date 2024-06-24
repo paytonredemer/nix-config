@@ -34,9 +34,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
-    ags.url = "github:Aylur/ags";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, nixos-wsl, agenix, nixvim, ... }@inputs: {
@@ -95,6 +94,7 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [ 
           ./home/payton/wsl.nix
+          ./home/modules
           nixvim.homeManagerModules.nixvim
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -104,6 +104,7 @@
         modules = [
           ./home/payton/work.nix
           ./home/modules
+          nixvim.homeManagerModules.nixvim
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };

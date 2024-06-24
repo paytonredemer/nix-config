@@ -4,21 +4,20 @@ let
   cfg = config.cli.nixvim;
 in
 {
-
   options = {
     cli.nixvim.enable = lib.mkEnableOption "Enables nixvim";
   };
 
-  # imports = [
-  #   ./plugins
-  #   ./keymaps.nix
-  #   ./options.nix
-  # ];
+  imports = [
+    ./plugins
+    ./keymaps.nix
+    ./options.nix
+  ];
 
   config = lib.mkIf cfg.enable {
-    # programs.nixvim = {
-    #   enable = true;
-    #   colorschemes.kanagawa.enable = true;
-    # };
+    programs.nixvim = {
+      enable = true;
+      colorschemes.kanagawa.enable = true;
+    };
   };
 }
