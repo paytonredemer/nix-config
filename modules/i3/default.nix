@@ -1,6 +1,5 @@
 {
-  services.xserver.displayManager.startx.enable = true;
-  services.xserver.windowManager.sway = {
+  programs.sway = {
     enable = true;
     # configFile = ./config;
   };

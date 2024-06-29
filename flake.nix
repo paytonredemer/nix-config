@@ -87,6 +87,8 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./home/payton/t480s.nix
+          ./home/modules
+          nixvim.homeManagerModules.nixvim
         ];
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
