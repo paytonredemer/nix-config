@@ -100,7 +100,11 @@
       # };
 
       defaultWorkspace = "workspace number 1";
-      window.border = 2;
+
+      window = {
+        border = 2;
+        titlebar = false;
+      };
 
       bars = [
         {
