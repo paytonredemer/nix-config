@@ -1,12 +1,14 @@
 { lib, ... }:
 {
   imports = [
-    ./cli
+    ./shell
     ./editor
   ];
 
-  cli.enable = lib.mkDefault true;
-  modules.editor.enable = lib.mkDefault true;
+  modules = {
+    shell.enable = lib.mkDefault true;
+    editor.enable = lib.mkDefault true;
+  };
 
   # Enable unfree packages
   nixpkgs.config = {

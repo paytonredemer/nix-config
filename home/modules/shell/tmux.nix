@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.cli.tmux;
+  cfg = config.modules.shell.tmux;
 in
 {
   options = {
-    cli.tmux.enable = lib.mkEnableOption "Enables tmux";
+    modules.shell.tmux.enable = lib.mkEnableOption "Enables tmux";
   };
 
   config = lib.mkIf cfg.enable {

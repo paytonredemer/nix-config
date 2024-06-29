@@ -5,12 +5,12 @@
   ...
 }:
 let
-  cfg = config.cli.fish;
+  cfg = config.modules.shell.fish;
   editor = "nvim";
 in
 {
   options = {
-    cli.fish.enable = lib.mkEnableOption "Enables fish";
+    modules.shell.fish.enable = lib.mkEnableOption "Enables fish";
   };
 
   config = lib.mkIf cfg.enable {

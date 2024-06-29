@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.cli.yazi;
+  cfg = config.modules.shell.yazi;
 in
 {
   options = {
-    cli.yazi.enable = lib.mkEnableOption "Enables yazi";
+    modules.shell.yazi.enable = lib.mkEnableOption "Enables yazi";
   };
 
   config = lib.mkIf cfg.enable {

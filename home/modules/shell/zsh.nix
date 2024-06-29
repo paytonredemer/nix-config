@@ -1,12 +1,12 @@
 { config, lib, ... }:
 let
-  cfg = config.cli.zsh;
+  cfg = config.modules.shell.zsh;
   editor = "nvim";
 in
 {
   # TODO: Add more options from dotfiles and make default shell
   options = {
-    cli.zsh.enable = lib.mkEnableOption "Enables zsh";
+    modules.shell.zsh.enable = lib.mkEnableOption "Enables zsh";
   };
 
   # TODO: Add vim bindings and other nice to haves in zsh

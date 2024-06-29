@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.cli.zoxide;
+  cfg = config.modules.shell.zoxide;
 in
 {
   options = {
-    cli.zoxide.enable = lib.mkEnableOption "Enables zoxide";
+    modules.shell.zoxide.enable = lib.mkEnableOption "Enables zoxide";
   };
 
   config = lib.mkIf cfg.enable { programs.zoxide.enable = true; };

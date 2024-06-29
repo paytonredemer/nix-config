@@ -1,11 +1,11 @@
 { config, lib, ... }:
 let
-  cfg = config.cli.shell;
+  cfg = config.modules.shell.shell;
   editor = "nvim";
 in
 {
   options = {
-    cli.shell.enable = lib.mkEnableOption "Enables shell variables";
+    modules.shell.shell.enable = lib.mkEnableOption "Enables shell variables";
   };
   config = lib.mkIf cfg.enable {
     home.sessionVariables = {

@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.cli.git;
+  cfg = config.modules.shell.git;
 in
 {
   options = {
-    cli.git.enable = lib.mkEnableOption "Enables git configuration";
+    modules.shell.git.enable = lib.mkEnableOption "Enables git configuration";
   };
 
   # TODO: Add signing config option

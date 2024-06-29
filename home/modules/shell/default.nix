@@ -1,13 +1,11 @@
 { config, lib, ... }:
 let
-  cfg = config.cli;
+  cfg = config.modules.shell;
 in
 {
     imports = [
       ./fish.nix
       ./git
-      # ./neovim
-      # ./nixvim
       ./shell.nix
       ./starship.nix
       ./tmux.nix
@@ -17,11 +15,11 @@ in
     ];
 
   options = {
-    cli.enable = lib.mkEnableOption "Enables cli programs";
+    modules.shell.enable = lib.mkEnableOption "Enables modules.shell programs";
   };
 
   config = lib.mkIf cfg.enable {
-    cli = {
+    modules.shell = {
       fish.enable = lib.mkDefault true;
       git.enable = lib.mkDefault true;
       # neovim.enable = lib.mkDefault true;
