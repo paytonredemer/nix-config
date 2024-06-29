@@ -1,13 +1,17 @@
 { lib, ... }:
 {
   imports = [
-    ./shell
+    ./desktop
     ./editor
+    ./services
+    ./shell
+    ./themes
   ];
 
   modules = {
     shell.enable = lib.mkDefault true;
     editor.enable = lib.mkDefault true;
+    desktop.enable = lib.mkDefault false;
   };
 
   # Enable unfree packages

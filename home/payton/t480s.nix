@@ -6,10 +6,7 @@
 
   home.stateVersion = "23.11";
 
-  imports = [
-    ../modules/gui
-    ../modules/gui/i3.nix
-  ];
+  modules.desktop.enable = true;
 
   # Enable unfree packages
   nixpkgs.config = {
