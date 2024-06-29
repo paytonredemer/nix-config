@@ -6,8 +6,8 @@ in
     imports = [
       ./fish.nix
       ./git
-      ./neovim
-      ./nixvim
+      # ./neovim
+      # ./nixvim
       ./shell.nix
       ./starship.nix
       ./tmux.nix
@@ -24,8 +24,8 @@ in
     cli = {
       fish.enable = lib.mkDefault true;
       git.enable = lib.mkDefault true;
-      neovim.enable = lib.mkDefault true;
-      nixvim.enable = lib.mkDefault false;
+      # neovim.enable = lib.mkDefault true;
+      # nixvim.enable = lib.mkDefault false;
       shell.enable = lib.mkDefault true;
       starship.enable = lib.mkDefault true;
       tmux.enable = lib.mkDefault true;

@@ -1,11 +1,11 @@
 # TODO: This doesn't work...
 { config, lib, ... }:
 let
-  cfg = config.cli.nixvim;
+  cfg = config.modules.editor.nixvim;
 in
 {
   options = {
-    cli.nixvim.enable = lib.mkEnableOption "Enables nixvim";
+    modules.editor.nixvim.enable = lib.mkEnableOption "Enables nixvim";
   };
 
   imports = [

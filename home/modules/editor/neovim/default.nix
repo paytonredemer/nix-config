@@ -6,11 +6,11 @@
   ...
 }:
 let
-  cfg = config.cli.neovim;
+  cfg = config.modules.editor.neovim;
 in
 {
   options = {
-    cli.neovim.enable = lib.mkEnableOption "Enables neovim";
+    modules.editor.neovim.enable = lib.mkEnableOption "Enables neovim";
   };
 
   config = lib.mkIf cfg.enable {
@@ -67,7 +67,7 @@ in
       "nvim/init.lua".source = ./nvim-config/init.lua;
       "nvim/lua".source = ./nvim-config/lua;
       "nvim/stylua.toml".source = ./nvim-config/stylua.toml;
-      "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/nix-config/home/modules/cli/neovim/nvim-config/lazy-lock.json";
+      "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/nix-config/home/modules/editor/neovim/nvim-config/lazy-lock.json";
       # Install treesitter parsers with nix
       "nvim/parser".source = "${pkgs.symlinkJoin { name = "treesitter-parsers"; paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies; }}/parser";
     };
